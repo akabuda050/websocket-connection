@@ -1,7 +1,7 @@
 # Very short description of the package
 
-This package provides basic interfaces for event publishing and subscribing to it.
-Redis is used out of the box.
+This package provides websocket connection example for [EventBridge package](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge package").
+**NOTE:** s
 
 ## Installation
 
