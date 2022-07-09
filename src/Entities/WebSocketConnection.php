@@ -1,6 +1,6 @@
 <?php
 
-namespace JsonBaby\WebsocketConnection;
+namespace JsonBaby\Entites\WebsocketConnection;
 
 use Closure;
 use JsonBaby\EventBridge\Interfaces\Connections\PubSubConnectionInterface;
