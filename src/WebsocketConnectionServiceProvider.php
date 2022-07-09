@@ -5,6 +5,7 @@ namespace JsonBaby\WebsocketConnection;
 use Illuminate\Support\ServiceProvider;
 use JsonBaby\EventBridge\Interfaces\Connections\PubSubConnectionInterface;
 use JsonBaby\WebsocketConnection\Console\InstallWebsocketConnectionCommand;
+use JsonBaby\WebsocketConnection\Entities\WebSocketConnection;
 use WebSocket\Client;
 
 class WebsocketConnectionServiceProvider extends ServiceProvider
@@ -34,13 +35,13 @@ class WebsocketConnectionServiceProvider extends ServiceProvider
         $this->mergeConfigFrom(__DIR__ . '/../config/websocket-connection.php', 'websocket-connection');
 
         // Register the main class to use with the facade
-        $this->app->when(PubSubConnectionInterface::class)
-            ->needs(Client::class)
-            ->give(function () {
-                return new Client(
-                    $this->app->config['websocket-connection.websocket_uri'],
-                    $this->app->config['websocket-connection.options']
-                );
-            });
+        $this->app->singleton(PubSubConnectionInterface::class, function ($app): WebSocketConnection {
+            return new WebSocketConnection(
+                new Client(
+                    $app->config['websocket-connection.websocket_uri'],
+                    $app->config['websocket-connection.options']
+                )
+            );
+        });
     }
 }
