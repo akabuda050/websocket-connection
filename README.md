@@ -8,9 +8,13 @@ In order to get this work you also need to install [Simple PubSub WebSocket Serv
 
 `composer require jsonbaby/websocket-connection`
 
+`php artisan websocket-connection:install`
+
 ## Usage
 
 - Install and run [Simple PubSub WebSocket Server package](https://www.npmjs.com/package/simple-pubsub-websocket-server "Simple PubSub WebSocket Server package")
+
+- Change `websocket_uri` and add `options` if you want in `config/websocket-connection.php`. See [Websocket Client and Server for PHP package](https://github.com/Textalk/websocket-php/blob/master/docs/Client.md "Websocket Client and Server for PHP") for options reference.
 
 - Check the readme of how to use [EventBridge package](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge package")
 
