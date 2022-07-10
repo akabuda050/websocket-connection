@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'websocket_uri' => env("JBWC_WEBSOCKET_URI", 'ws://localhost:9000/'),
+    'websocket_uri' => env("JB_WEBSOCKET_URI", 'ws://localhost:9000/'),
     'options' => [
         
     ]
