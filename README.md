@@ -1,29 +1,17 @@
 # Very short description of the package
 
-This package provides websocket connection example for [EventBridge package](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge package").
+This package provides websocket publish/subscribe functionality for [EventBridge](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge").
 
-In order to get this work you also need to install [Simple PubSub WebSocket Server package](https://www.npmjs.com/package/simple-pubsub-websocket-server "Simple PubSub WebSocket Server package") or build your own.
+In order to get this work you also need to install [Simple PubSub WebSocket Server package](https://www.npmjs.com/package/simple-pubsub-websocket-server "Simple PubSub WebSocket Server package") or build your own:p.
 
 ## Installation
 
-`composer require jsonbaby/websocket-connection`
+`composer require jsonbaby/websocket-pubsub`
 
-`php artisan websocket-connection:install`
+`php artisan websocket-pubsub:install`
 
 ## Usage
 
 - Install and run [Simple PubSub WebSocket Server package](https://www.npmjs.com/package/simple-pubsub-websocket-server "Simple PubSub WebSocket Server package")
 
-- Change `websocket_uri` and add `options` if you want in `config/websocket-connection.php`. See [Websocket Client and Server for PHP package](https://github.com/Textalk/websocket-php/blob/master/docs/Client.md "Websocket Client and Server for PHP") for options reference.
-
-- Check the readme of how to use [EventBridge package](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge package")
-
-- Change `pubsub.provider` in your `config/event-bridge.php` in your apps to looks like
-  ```
-  'pubsub' =>  [
-        'entity' => JsonBaby\EventBridge\Entities\EventPubSub::class,
-        'provider' => JsonBaby\WebsocketConnection\WebSocketConnection::class
-    ]
-  ```
-
-Thats all! [EventBridge package](https://packagist.org/packages/jsonbaby/event-bridge "EventBridge package") will handle the rest:p
+- Change `websocket_uri` and add `options` if you want in `config/websocket-pubsub.php`. See [Websocket Client and Server for PHP package](https://github.com/Textalk/websocket-php/blob/master/docs/Client.md "Websocket Client and Server for PHP") for options reference.

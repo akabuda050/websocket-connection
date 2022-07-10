@@ -1,23 +1,23 @@
 <?php
 
-namespace JsonBaby\WebsocketConnection\Console;
+namespace JsonBaby\WebSocketPubSub\Console;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 
-class InstallWebsocketConnectionCommand extends Command
+class InstallWebSocketPubSubCommand extends Command
 {
-    protected $signature = 'websocket-connection:install';
+    protected $signature = 'websocket-pubsub:install';
 
-    protected $description = 'Install the WebsocketConnection';
+    protected $description = 'Install the WebSocketPubSub';
 
     public function handle(): void
     {
-        $this->info('Installing WebsocketConnection...');
+        $this->info('Installing WebSocketPubSub...');
 
         $this->info('Publishing configuration...');
 
-        if (! $this->configExists('websocket-connection.php')) {
+        if (! $this->configExists('websocket-pubsub.php')) {
             $this->publishConfiguration();
             $this->info('Published configuration');
         } else {
@@ -29,7 +29,7 @@ class InstallWebsocketConnectionCommand extends Command
             }
         }
 
-        $this->info('Installed WebsocketConnection');
+        $this->info('Installed WebSocketPubSub');
     }
 
     private function configExists(string $fileName): bool
@@ -48,7 +48,7 @@ class InstallWebsocketConnectionCommand extends Command
     private function publishConfiguration(bool $forcePublish = false): void
     {
         $params = [
-            '--tag' => "websocket-connection-config"
+            '--tag' => "websocket-pubsub-config"
         ];
 
         if ($forcePublish === true) {
